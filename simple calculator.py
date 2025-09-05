@@ -1,38 +1,44 @@
-def arth(a,b):
-    sum1=a+b
-    sum2=a-b
-    sum3=a*b
-    sum4=a/b
-    sum5=a//b
-    sum6=a%b
-    return 0
-arth(a,b)
 def calculator():
-    print("Selection Options:-")
-    print("1.Addition")
-    print("2.Subraction")
-    print("3.Multiplication")
-    print("4.Division")
-    print("5.Double Division")
-    print("6.Reminder")
+    print("Selection Options:")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Floor Division")
+    print("6. Remainder")
 
-    choice=('''Enter 1.Addition,2.Subraction,3.Multiplication,
-            4.Division,5.Double Divison,6.Reminder''')
-    num1=int(input("Enter the first number:"))
-    num2=int(input("Enter the second number:"))
-    if choice=='1':
-        print(sum1)
-    elif choice=='2':
-        print(sum2)
-    elif choice=='3':
-        print(sum3)
-    elif choice=='4':
-        print(sum4)
-    elif choice=='5':
-        print(sum5)
-    elif choice=='6':
-        print(sum6)
+    choice = input("Enter your choice (1-6): ")
+
+    try:
+        num1 = float(input("Enter the first number: "))
+        num2 = float(input("Enter the second number: "))
+    except ValueError:
+        print("Invalid input. Please enter numbers only.")
+        return
+
+    if choice == '1':
+        print("Result:", num1 + num2)
+    elif choice == '2':
+        print("Result:", num1 - num2)
+    elif choice == '3':
+        print("Result:", num1 * num2)
+    elif choice == '4':
+        if num2 != 0:
+            print("Result:", num1 / num2)
+        else:
+            print("Error: Cannot divide by zero.")
+    elif choice == '5':
+        if num2 != 0:
+            print("Result:", num1 // num2)
+        else:
+            print("Error: Cannot divide by zero.")
+    elif choice == '6':
+        if num2 != 0:
+            print("Result:", num1 % num2)
+        else:
+            print("Error: Cannot find remainder with divisor zero.")
     else:
-        print("Invaild")
-    return 0
+        print("Invalid choice. Please select a number from 1 to 6.")
+
+# Run the calculator
 calculator()
